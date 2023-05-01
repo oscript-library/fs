@@ -90,7 +90,13 @@
 КонецПроцедуры
 
 &Тест
+#Если Windows Тогда
 &Параметры("C:\projects\SB\vanessa\.\\apache", "C:\projects\SB\vanessa\apache")
+&Параметры("C:/projects/SB/vanessa\apache/uplevel/..", "C:\projects\SB\vanessa\apache")
+&Параметры("C:/projects/SB/vanessa/apache", "C:\projects\SB\vanessa\apache")
+#Иначе
+&Параметры("C:/projects/SB/vanessa\apache/uplevel/..", "C:/projects/SB/vanessa/apache")
+#КонецЕсли
 Процедура Тест_ПутиРавны(Первый, Второй) Экспорт
 	Ожидаем.Что(лФС.ПутиРавны(Первый, Второй)).ЭтоИстина();
 КонецПроцедуры
